@@ -42,7 +42,7 @@ async function checkVisited() {
 app.post("/add", async (req,res)=>{
   const countryName=req.body.country;
   try{
-    const result= await db.query("SELECT country_code FROM countries WHERE country_name = $1", [countryName]);
+    const result= await db.query("SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%' ", [countryName]);
     if (result.rows.length === 0) {
             // If no matching country is found, throw an error
             throw new Error("Country not found in the database");
