@@ -4,7 +4,7 @@ import pg from "pg";
 const db=new pg.Client({
   host:"localhost",
   user:"postgres",
-  password:"Jun23135",
+  password:"",
   database:"World",
   port: 5433,
 
